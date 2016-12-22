@@ -1,7 +1,14 @@
 <h3>Open lists</h3>
 
 <ul class="lists-list">
-<% @lists.each do |list| %>
+<% @open_lists.each do |list| %>
+  <li><a href="/lists/<%= list.id %>"><%= list.name %></a></li>
+<% end %>
+</ul>
+
+<h3>Closed Lists</h3>
+<ul class="lists-list">
+<% @closed_lists.each do |list| %>
   <li><a href="/lists/<%= list.id %>"><%= list.name %></a></li>
 <% end %>
 </ul>

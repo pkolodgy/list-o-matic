@@ -1,0 +1,6 @@
+<% @results = list.get_results %>
+<ol>
+<% @results.each do |result| %>
+  <%= erb :'albums/_info', locals: {album: Album.find(result[0]), points: result[1]} %>
+<% end %>
+</ol>

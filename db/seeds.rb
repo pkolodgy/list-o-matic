@@ -15,7 +15,7 @@ User.all.each do |user|
   destroy = Album.all.to_a
   b = Ballot.create(list: list, voter: user)
 
-  albums.length.times do |i|
-    Vote.create(album: destroy.shuffle.pop, ballot: b, points: (i+1))
+  5.times do |i|
+    Vote.create(album: destroy.shuffle.shift, ballot: b, points: (i+1))
   end
 end
