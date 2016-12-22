@@ -1,0 +1,21 @@
+body {
+  width: 900px;
+  margin: 10px auto;
+  border: 1px black solid;
+  padding: 20px;
+}
+
+h1.title {
+  margin: 5px;
+  width:50%;
+}
+
+nav {
+  width: 25%;
+  margin: 10px;
+}
+
+.block-form input {
+  display:block;
+  margin: 10px;
+}
