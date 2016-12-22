@@ -1,0 +1,5 @@
+<% if current_user %>
+  <nav><a href="/logout">Logout</a> | <a href="/profile"><%= current_user.username %></a></nav>
+<% else %>
+  <nav><a href="/login">Login</a> | <a href="/users/new">Register</a></nav>
+<% end %>
