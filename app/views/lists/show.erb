@@ -1,0 +1,7 @@
+<h3><%= @list.name %></h3>
+
+<% if !@list.closed? %>
+  <p>Voting is still open. <a href="/lists/<%= @list.id %>/ballots/new">Add your list.</a></p>
+
+  <p>(Contributors so far: <%= @list.voters.pluck(:username).join(', ') %>)</p>
+<% end %>

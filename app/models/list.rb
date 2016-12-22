@@ -8,4 +8,9 @@ class List < ActiveRecord::Base
   has_many :votes, through: :ballots
   has_many :included_albums, through: :votes, source: :album
   has_many :included_artists, through: :included_albums, source: :artist
+
+  def closed?
+    self.end_time < DateTime.now
+  end
+  
 end

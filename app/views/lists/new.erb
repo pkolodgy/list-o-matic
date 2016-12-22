@@ -1,0 +1,6 @@
+<h3>Open a new list</h3>
+<%= erb :'_errors', locals: {errors: @errors} %>
+<form class="block-list" action="/lists" method="post">
+  <input type="name" name="name" placeholder="e.g. Top 10 Albums of 2016">
+  <input type="submit" value="submit">
+</form>
