@@ -19,3 +19,8 @@ nav {
   display:block;
   margin: 10px;
 }
+
+.block-form input.inline {
+  display: inline;
+  margin: 10px;
+}

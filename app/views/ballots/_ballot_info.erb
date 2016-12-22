@@ -1,0 +1,5 @@
+<ol>
+<% @ballot.votes.sort_by {|vote| vote.points}.reverse.each do |vote| %>
+  <li><%= vote.album.artist.name %> - <%= vote.album.title %></li>
+<% end %>
+</ol>

@@ -1,7 +1,17 @@
 <h3><%= @list.name %></h3>
 
 <% if !@list.closed? %>
-  <p>Voting is still open. <a href="/lists/<%= @list.id %>/ballots/new">Add your list.</a></p>
 
-  <p>(Contributors so far: <%= @list.voters.pluck(:username).join(', ') %>)</p>
+  <p>Voting is open until <%= @list.end_time.strftime("%m/%d/%Y") %>. <a href="/lists/<%= @list.id %>/ballots/new">Add your list.</a></p>
+
+  <% if @list.voters.include?(current_user) %>
+    <p>You voted. You submitted this list:</p>
+    <% @ballot = current_user.ballots.find_by(list: @list) %>
+    <%= erb :'ballots/_ballot_info' %>
+  <% end %>
+
+<% else %>
+  <%= erb :'lists/_results', locals: {list: @list} %>
 <% end %>
+
+<p>(Contributors: <%= @list.voters.pluck(:username).join(', ') %>)</p>

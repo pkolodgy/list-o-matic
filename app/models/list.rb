@@ -12,5 +12,9 @@ class List < ActiveRecord::Base
   def closed?
     self.end_time < DateTime.now
   end
-  
+
+  def get_results
+    self.votes.group(:album_id).order('sum_points DESC').sum(:points)
+  end
+
 end

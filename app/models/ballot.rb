@@ -1,5 +1,5 @@
 class Ballot < ActiveRecord::Base
-  validates :voter_id, uniqueness: {scope: [:list_id]}
+  # validates :voter_id, uniqueness: {scope: [:list_id]}
 
   has_many :votes
   belongs_to :voter, class_name: User

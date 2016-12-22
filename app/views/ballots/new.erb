@@ -1,0 +1,10 @@
+<h3>Voting on <%= @list.name %></h3>
+<%= erb :'_errors', locals: {errors: @errors} %>
+<form action="/lists/<%= @list.id %>/ballots" method="post">
+  <% 5.times do |i| %>
+    <%= i + 1 %>.
+    <input type="text" name="artist[<%= (i+1) %>]" placeholder="artist">
+    <input class="inline" type="text" name="title[<%= (i+1) %>]" placeholder="album"><br>
+  <% end %>
+  <input type="submit" value="submit">
+</form>
