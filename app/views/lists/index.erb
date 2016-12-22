@@ -1,0 +1,9 @@
+<h3>Open lists</h3>
+
+<ul class="lists-list">
+<% @lists.each do |list| %>
+  <li><a href="/lists/<%= list.id %>"><%= list.name %></a></li>
+<% end %>
+</ul>
+
+<a href="/lists/new">Add a new list...</a>
