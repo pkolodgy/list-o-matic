@@ -13,8 +13,8 @@ class List < ActiveRecord::Base
     self.end_time < DateTime.now
   end
 
-  def get_results
-    self.votes.group(:album_id).order('sum_points DESC').sum(:points)
+  def get_results(limit=10)
+    self.votes.group(:album_id).limit(limit).order('sum_points DESC').sum(:points)
   end
 
 end

@@ -1,3 +1,5 @@
-<li>
-  <%= "#{album.artist.name} - #{album.title}, #{points} points" %>
-</li>
+<% @results = get_album_info(album.title, album.artist.name) %>
+<% @album_info = @results["results"].first %>
+
+<%= @album_info["title"] %><br>
+<img src="<%= @album_info["thumb"]%>">
