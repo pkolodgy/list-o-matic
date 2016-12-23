@@ -17,4 +17,8 @@ class List < ActiveRecord::Base
     self.votes.group(:album_id).limit(limit).order('sum_points DESC').sum(:points)
   end
 
+  def get_contributor_links
+    self.ballots.inject([]) {|memo,ballot| memo << "<a href='/lists/#{self.id}/ballots/#{ballot.id}'>#{ballot.voter.username}</a>"}
+  end
+
 end

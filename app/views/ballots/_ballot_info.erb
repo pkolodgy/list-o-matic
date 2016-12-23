@@ -1,5 +1,7 @@
-<ol>
-<% @ballot.votes.sort_by {|vote| vote.points}.reverse.each do |vote| %>
-  <li><%= vote.album.artist.name %> - <%= vote.album.title %></li>
-<% end %>
-</ol>
+<div class="results-list">
+  <% @ballot.votes.sort_by {|vote| vote.points}.reverse.each do |vote| %>
+    <div class="result clearfix">
+      <%= erb :'albums/_info', locals: {album: vote.album, points: vote.points} %>
+    </div>
+  <% end %>
+</div>

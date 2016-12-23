@@ -22,6 +22,7 @@ end
 
 get '/lists/:id' do
   @list = List.find_by_id(params[:id])
+  @contributor_links = @list.get_contributor_links
   erb :'lists/show'
 end
 
@@ -36,9 +37,9 @@ post '/lists/:list_id/ballots' do
   if ballot.save
     params[:artist].each do |key, artist|
       points = (params[:artist].length - key.to_i) + 1
-      artist = Artist.find_or_create_by(name: artist)
+      artist = Artist.find_or_create_by(name: artist.downcase.gsub(/[^0-9a-z ]/i, ''))
 
-      album = Album.find_or_create_by(title: params[:title][key], artist: artist)
+      album = Album.find_or_create_by(title: params[:title][key].downcase.gsub(/[^0-9a-z ]/i, ''), artist: artist)
 
       vote = Vote.new(album: album, ballot: ballot, points: points)
       if !vote.save
@@ -52,4 +53,10 @@ post '/lists/:list_id/ballots' do
     erb :"lists/#{params[:list_id]}/ballots/new"
   end
 
+end
+
+get '/lists/:list_id/ballots/:ballot_id' do
+  @list = List.find_by_id(params[:list_id])
+  @ballot = Ballot.find_by_id(params[:ballot_id])
+  erb :'ballots/show'
 end

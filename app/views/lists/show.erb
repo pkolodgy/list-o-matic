@@ -14,4 +14,6 @@
   <%= erb :'lists/_results', locals: {list: @list} %>
 <% end %>
 
-<p>(Contributors: <%= @list.voters.pluck(:username).join(', ') %>)</p>
+<p>Contributors:
+  <%= @contributor_links.join(', ') %>
+</p>
