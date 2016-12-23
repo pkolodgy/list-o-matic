@@ -61,3 +61,7 @@ nav {
   margin-bottom: 5px;
   font-size: 18px;
 }
+
+.album-info p.title {
+  font-size: 22px;
+}

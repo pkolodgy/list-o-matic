@@ -3,8 +3,8 @@
 
 <img class="album-img" src="<%= @album_info["thumb"]%>">
 <div class="album-info">
-  <p><%= @album_info["title"] %></p>
-  <p><%= @album_info["year"] %> | <%= @album_info["label"][0] %></p>
+  <p class="title"><%= @album_info["title"] %></p>
+  <p><%= @album_info["year"] %> | <%= @album_info["label"][0] %> | <%= @album_info["genre"].first %> | <%= @album_info["style"].first %></p>
   <p><%= points %> points</p>
   <p>Voted by: <%= album.voters.all.pluck(:username).to_a.join(', ') %></p>
 </div>
