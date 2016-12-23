@@ -1,8 +1,15 @@
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 body {
   width: 900px;
   margin: 10px auto;
   border: 1px black solid;
   padding: 20px;
+  counter-reset: results-counter;
 }
 
 h1.title {
@@ -23,4 +30,38 @@ nav {
 .block-form input.inline {
   display: inline;
   margin: 10px;
+}
+
+.result {
+  counter-increment: results-counter;
+  padding: 10px;
+  border: 1px black solid;
+  margin-bottom: 15px;
+}
+
+.result:before {
+  content: counter(results-counter, decimal-leading-zero);
+  margin-right:10px;
+  top: 50%;
+  display: inline-block;
+  float:left;
+  font-size: 65px;
+}
+
+.album-img {
+  float: right;
+}
+
+.album-info {
+  padding-left: 100px;
+}
+
+.album-info p {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.album-info p.title {
+  font-size: 22px;
 }

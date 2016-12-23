@@ -1,6 +1,8 @@
 <% @results = list.get_results %>
-<ol>
+<div class="results-list">
 <% @results.each do |result| %>
+  <div class="result clearfix">
   <%= erb :'albums/_info', locals: {album: Album.find(result[0]), points: result[1]} %>
+  </div>
 <% end %>
-</ol>
+</div>

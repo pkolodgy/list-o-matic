@@ -17,6 +17,8 @@ gem 'shotgun', '~>0.9.1'
 gem 'pry'
 gem 'bcrypt'
 gem 'discogs-wrapper'
+gem 'dotenv'
+gem 'httparty'
 
 group :test do
   gem 'shoulda-matchers'
