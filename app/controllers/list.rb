@@ -5,6 +5,7 @@ get '/lists' do
 end
 
 get '/lists/new' do
+  require_user
   erb :'lists/new'
 end
 
@@ -24,6 +25,12 @@ get '/lists/:id' do
   @list = List.find_by_id(params[:id])
   @contributor_links = @list.get_contributor_links
   erb :'lists/show'
+end
+
+get '/lists/:id/close' do
+  @list = List.find_by_id(params[:id])
+  @list.update_attributes(end_time: DateTime.now - 1)
+  redirect "/lists/#{params[:id]}"
 end
 
 get '/lists/:list_id/ballots/new' do

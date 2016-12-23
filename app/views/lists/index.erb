@@ -13,4 +13,6 @@
 <% end %>
 </ul>
 
-<a href="/lists/new">Add a new list...</a>
+<% if current_user %>
+  <a href="/lists/new">Add a new list...</a>
+<% end %>
