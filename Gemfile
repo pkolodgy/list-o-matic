@@ -19,6 +19,7 @@ gem 'bcrypt'
 gem 'discogs-wrapper'
 gem 'dotenv'
 gem 'httparty'
+gem 'faker'
 
 group :test do
   gem 'shoulda-matchers'
