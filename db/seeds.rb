@@ -1,4 +1,4 @@
-albums = [["Royal Trux", "Accelerator"], ["Franklin Bruno", "Suggestion Box"], ["Summer Hits","Beaches and Canyons"], ["Yo La Tengo", "Painful"], ["Guided By Voices", "Alien Lanes"]]
+albums = [["Royal Trux", "Accelerator"],  ["Summer Hits","Beaches and Canyons"], ["Yo La Tengo", "Painful"], ["Guided By Voices", "Alien Lanes"], ["Liz Phair", "Exile In Guyville"], ["The Pooh Sticks", "Formula One Generation"], ["Mountain Goats", "Zopilote Machine"], ["Charlie Mcalister", "Mississippi Luau"], ["Oblivians", "Popular Favorites"], ["The Softies", "It's Love"], ["The Cardigans", "First Band on the Moon"], ["Darcy Clay", "Jesus I Was Evil"], ["Don Lennon", "Maniac"], ["Saint Etienne", "Foxbase Alpha"]]
 
 10.times do
   User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: Faker::Internet.password)

@@ -36,7 +36,6 @@ post '/lists/:list_id/ballots' do
   if ballot.save
     params[:artist].each do |key, artist|
       points = (params[:artist].length - key.to_i) + 1
-      binding.pry
       artist = Artist.find_or_create_by(name: artist)
 
       album = Album.find_or_create_by(title: params[:title][key], artist: artist)
